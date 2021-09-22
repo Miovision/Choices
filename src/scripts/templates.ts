@@ -296,7 +296,7 @@ const templates = {
       noResults,
       noChoices,
     }: Pick<ClassNames, 'item' | 'itemChoice' | 'noResults' | 'noChoices'>,
-    innerHTML: string,
+    innerText: string,
     type: 'no-choices' | 'no-results' | '' = '',
   ): HTMLDivElement {
     const classes = [item, itemChoice];
@@ -308,7 +308,7 @@ const templates = {
     }
 
     return Object.assign(document.createElement('div'), {
-      innerHTML,
+      innerText,
       className: classes.join(' '),
     });
   },

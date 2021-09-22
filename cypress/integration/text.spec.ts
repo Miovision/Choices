@@ -45,7 +45,7 @@ describe('Choices - text element', () => {
               .should($dropdown => {
                 const dropdownText = $dropdown.text().trim();
                 expect(dropdownText).to.equal(
-                  `Press Enter to add "${textInput}"`,
+                  `Press Enter to add <b>"${textInput}"</b>`,
                 );
               });
           });
