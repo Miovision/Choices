@@ -1,4 +1,4 @@
-/*! choices.js v9.0.1 | © 2019 Josh Johnson | https://github.com/jshjohnson/Choices#readme */
+/*! choices.js v9.0.1 | © 2021 Josh Johnson | https://github.com/jshjohnson/Choices#readme */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
@@ -3577,7 +3577,7 @@ function () {
   };
 
   Choices.prototype._generatePlaceholderValue = function () {
-    if (this._isSelectElement) {
+    if (this._isSelectElement && this.passedElement.placeholderOption) {
       var placeholderOption = this.passedElement.placeholderOption;
       return placeholderOption ? placeholderOption.text : null;
     }
@@ -5167,7 +5167,7 @@ var templates = {
     var placeholder = _a.placeholder;
     return Object.assign(document.createElement('div'), {
       className: placeholder,
-      innerHTML: value
+      innerText: value
     });
   },
   item: function item(_a, _b, removeItemButton) {
@@ -5186,7 +5186,7 @@ var templates = {
         isPlaceholder = _b.placeholder;
     var div = Object.assign(document.createElement('div'), {
       className: item,
-      innerHTML: label
+      innerText: label
     });
     Object.assign(div.dataset, {
       item: '',
@@ -5221,7 +5221,7 @@ var templates = {
       var removeButton = Object.assign(document.createElement('button'), {
         type: 'button',
         className: button,
-        innerHTML: REMOVE_ITEM_TEXT
+        innerText: REMOVE_ITEM_TEXT
       });
       removeButton.setAttribute('aria-label', REMOVE_ITEM_TEXT + ": '" + value + "'");
       removeButton.dataset.button = '';
@@ -5266,7 +5266,7 @@ var templates = {
 
     div.appendChild(Object.assign(document.createElement('div'), {
       className: groupHeading,
-      innerHTML: value
+      innerText: value
     }));
     return div;
   },
@@ -5287,7 +5287,7 @@ var templates = {
         isPlaceholder = _b.placeholder;
     var div = Object.assign(document.createElement('div'), {
       id: elementId,
-      innerHTML: label,
+      innerText: label,
       className: item + " " + itemChoice
     });
 
@@ -5341,7 +5341,7 @@ var templates = {
     div.setAttribute('aria-expanded', 'false');
     return div;
   },
-  notice: function notice(_a, innerHTML, type) {
+  notice: function notice(_a, innerText, type) {
     var item = _a.item,
         itemChoice = _a.itemChoice,
         noResults = _a.noResults,
@@ -5360,7 +5360,7 @@ var templates = {
     }
 
     return Object.assign(document.createElement('div'), {
-      innerHTML: innerHTML,
+      innerText: innerText,
       className: classes.join(' ')
     });
   },
